@@ -1,0 +1,276 @@
+# Tin Buzancic
+
+#Set Seed
+set.seed(110)
+
+#Exponential a)
+
+#Exponential Calculations
+exponential = rexp(n = 100000,rate =  .11)
+exponential[1:10]
+meanExponential = mean(exponential, na.rm = TRUE)
+meanExponential
+varExponential = var(exponential, na.rm = TRUE)
+varExponential
+
+#Exponential Histogram
+expHist = hist(exponential, breaks = seq(0,115,5),     
+               main = "Based on 100,000 Observations",probability =TRUE,
+               xlab = "Sample Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Exponential b) Averages of 4
+means = numeric(100000)
+for(i in 1:100000)
+{
+  expTrial = rexp(n = 4,rate =  .11)
+  means[i] = mean(expTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+expTrialHist = hist(means, breaks = seq(0,40,2),     
+                    main = "100,000 Averages of 4 Observations",probability =TRUE,
+                    xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Exponential b) Averages of 36
+means = numeric(100000)
+for(i in 1:100000)
+{
+  expTrial = rexp(n = 36,rate =  .11)
+  means[i] = mean(expTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+expTrialHist = hist(means, breaks = seq(2,18,1),     
+                    main = "100,000 Averages of 36 Observations",probability =TRUE,
+                    xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Exponential b) Averages of 100
+means = numeric(100000)
+for(i in 1:100000)
+{
+  expTrial = rexp(n = 100,rate =  .11)
+  means[i] = mean(expTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+expTrialHist = hist(means, breaks = seq(5,15,.25),     
+                    main = "100,000 Averages of 100 Observations",probability =TRUE,
+                    xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+###################################################################################################
+
+#reset seed
+set.seed(110)
+
+#Binomial a)
+#Binomial Calcuations
+
+binomial = rbinom(n = 100000, size = 55, prob = .48)
+binomial[1:10]
+meanBinomial = mean(binomial, na.rm= TRUE)
+meanBinomial
+varBinomial = var(binomial, na.rm = TRUE)
+varBinomial
+
+#Binomial Historgram
+bHist = hist(binomial, breaks = seq(10,50,2),     
+             main = "Probability of 100,000 Observations",probability =TRUE,
+             xlab = "Sample Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Binomial b) Averages of 4 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  biTrial = rbinom(n = 4, size = 55, prob = .48)
+  means[i] = mean(biTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+biTrialHist = hist(means, breaks = seq(15,35,.5),     
+                   main = "100,000 Averages of 4 Observations",probability =TRUE,
+                   xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Binomial c) Averages of 36 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  biTrial = rbinom(n = 36, size = 55, prob = .48)
+  means[i] = mean(biTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+biTrialHist = hist(means, breaks = seq(23,30,.25),     
+                   main = "100,000 Averages of 36 Observations",probability =TRUE,
+                   xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Binomial d) Averages of 100 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  biTrial = rbinom(n = 100, size = 55, prob = .48)
+  means[i] = mean(biTrial, na.rm=TRUE)
+}
+mean(means)
+var(means)
+
+biTrialHist = hist(means, breaks = seq(24,29,.125),     
+                   main = "100,000 Averages of 100 Observations",probability =TRUE,
+                   xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+##################################################################################################
+
+#reset seed
+set.seed(110)
+
+#Discrete a)
+#Discrete Calcuations
+items = c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+probs = c(0.18, 0.04, 0.19, 0.03, 0.23, 0.23, 0.02, 0.07, 0.01)
+sample = sample(items, size = 100000, probs, replace = TRUE)
+sample[1:10]
+meanSample = mean(sample, na.rm = TRUE)
+meanSample
+varSample = var(sample, na.rm = TRUE)
+varSample
+
+#General Case Histogram
+sampleHist= hist(sample, breaks = seq(0,12,2),     
+                 main = "Probability of 100,000 Observations",probability =TRUE,
+                 xlab = "Sample Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Discrete b) Averages of 4 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  sampleTrial = sample(items, size = 4 , probs, replace = TRUE)
+  means[i] = mean(sampleTrial, na.rm=TRUE)
+}
+
+mean(means)
+var(means)
+
+sampleTrialHist = hist(means, breaks = seq(0,9,.5),     
+                       main = "100,000 Averages of 4 Observations",probability =TRUE,
+                       xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Discrete c) Averages of 36 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  sampleTrial = sample(items, size = 36 , probs, replace = TRUE)
+  means[i] = mean(sampleTrial, na.rm=TRUE)
+}
+
+sampleTrialHist = hist(means, breaks = seq(2 ,6,.25),     
+                       main = "100,000 Averages of 36 Observations",probability =TRUE,
+                       xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+mean(means)
+var(means)
+
+#Discrete d) Averages of 100 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  sampleTrial = sample(items, size = 100 , probs, replace = TRUE)
+  means[i] = mean(sampleTrial, na.rm=TRUE)
+}
+
+sampleTrialHist = hist(means, breaks = seq(3,5.5,.125),     
+                       main = "100,000 Averages of 100 Observations",probability =TRUE,
+                       xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+mean(means)
+var(means)
+######################################################################################################
+
+#reset seed
+set.seed(110)
+
+#Continuous a)
+#Continuous Calcuations
+y = numeric(100000)
+for(i in 1:100000)
+{
+  u = runif(n = 1, min = 0, max = 1)
+  y[i] = 4 * (u^(1/3)) # inverse of integral
+} # end of loop
+
+contMean = mean(y, na.rm=TRUE)
+contMean
+contVar = var(y, na.rm=TRUE)
+contVar
+
+#Continuous Dist Histogram
+contHist = hist(y, breaks = seq(0,4,0.25),     
+                main = "Probabality of 100,000 Observations",probability =TRUE,
+                xlab = "Sample Averages", ylab = "Probability",cex.main=1.0,cex.lab=1.0)
+
+
+#Creating the Line
+x = seq(1,4,.1)
+PDFX = (3/64) * (x^2)
+lines(x,PDFX,lwd=3,col="red")
+
+#Continuous b) Averages of 4 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  k = numeric(4)
+  for(j in 1:4)
+  {
+    m = runif(n = 1, min = 0, max = 1)
+    k[j] = 4 * (m^(1/3)) # inverse of integral
+  } # end of loop
+  means[i] = mean(k, na.rm=TRUE)
+}
+
+mean(means)
+var(means)
+
+contTrialHist = hist(means, breaks = seq(1,4,.25),     
+                     main = "100,000 Averages of 4 Observations",probability =TRUE,
+                     xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+#Continuous c) Averages of 36 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  k = numeric(36)
+  for(j in 1:36)
+  {
+    m = runif(n = 1, min = 0, max = 1)
+    k[j] = 4 * (m^(1/3)) # inverse of integral
+  } # end of loop
+  means[i] = mean(k, na.rm=TRUE)
+}
+
+mean(means)
+var(means)
+
+contTrialHist = hist(means, breaks = seq(2,4,.0625),     
+                     main = "100,000 Averages of 36 Observations",probability =TRUE,
+                     xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+
+
+#Discrete d) Averages of 100 Observations
+means = numeric(100000)
+for(i in 1:100000)
+{
+  k = numeric(100)
+  for(j in 1:100)
+  {
+    m = runif(n = 1, min = 0, max = 1)
+    k[j] = 4 * (m^(1/3)) # inverse of integral
+  } # end of loop
+  means[i] = mean(k, na.rm=TRUE)
+}
+
+mean(means)
+var(means)
+
+contTrialHist = hist(means, breaks = seq(2.5,3.5,.03125),     
+                     main = "100,000 Averages of 100 Observations",probability =TRUE,
+                     xlab = "Averages", ylab = "Probability", cex.main=1.0,cex.lab=1.0)
+##END###############################################################################################
